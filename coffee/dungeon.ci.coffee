@@ -1,15 +1,15 @@
-window.Dungeon = {
-  Ci: {}
-}
+window.DungeonCi = window.Dungeon || {}
 
-class Dungeon.Ci.Map
-  id: 'map'
+class DungeonCi.App
+  constructor: () ->
+    @render()
 
-  render: =>
-    @paper = Raphael(document.getElementById(@id),320,300)
-    @circle = @paper.circle(5,4,10)
-    @circle.attr 'fill', '#DDD'
-    @circle.attr 'stroke', '#ABA'
+  render: () =>
+    raw_data = [ [ 0,0,0,0] ]
+    @map = new DungeonCi.Views.Map( raw_data )
+    @map.render()
 
 
 
+
+window.App = new DungeonCi.App()
